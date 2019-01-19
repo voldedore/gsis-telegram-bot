@@ -1,1 +1,1 @@
-release: main
+worker: main
