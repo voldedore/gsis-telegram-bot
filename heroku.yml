@@ -3,4 +3,4 @@ build:
     - go
 
 run:
-  cli: gsis-bot
+  worker: main

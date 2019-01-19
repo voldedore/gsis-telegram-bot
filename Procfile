@@ -1,1 +1,1 @@
-cli: gsis-bot
+worker: main
