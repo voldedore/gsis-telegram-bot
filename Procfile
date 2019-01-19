@@ -1,1 +1,1 @@
-cli: g-sis-bot
+cli: gsis-bot
