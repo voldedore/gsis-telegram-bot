@@ -6,13 +6,14 @@ import (
 	"fmt"
 	"strconv"
 	"net/url"
+	"os"
 
 	tb "gopkg.in/tucnak/telebot.v2"
 )
 
 func main() {
 	b, err := tb.NewBot(tb.Settings{
-		Token:  "secret",
+		Token:  os.Getenv("SECRET_TOKEN"),
 		Poller: &tb.LongPoller{Timeout: 10 * time.Second},
 	})
 
