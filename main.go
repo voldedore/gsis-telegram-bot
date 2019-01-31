@@ -11,7 +11,8 @@ import (
 	tb "gopkg.in/tucnak/telebot.v2"
 )
 
-func main() {
+func gSisBot() {
+	// Google Sis Bot
 	b, err := tb.NewBot(tb.Settings{
 		Token:  os.Getenv("SECRET_TOKEN"),
 		Poller: &tb.LongPoller{Timeout: 10 * time.Second},
@@ -59,4 +60,49 @@ func main() {
 	})
 
 	b.Start()
+}
+
+func the2ndBot() {
+
+	// Second bot
+	the2ndBot, err := tb.NewBot(tb.Settings{
+		Token: os.Getenv("SECRET_TOKEN_2ND"),
+		Poller: &tb.LongPoller{Timeout: 10 * time.Second},
+	})
+
+	if err != nil {
+		log.Fatal(err)
+		return
+	}
+
+	the2ndBot.Handle("/start", func(m *tb.Message) {
+		the2ndBot.Send(m.Sender, "2nd bot running too")
+	})
+
+	the2ndBot.Start()
+}
+
+func main() {
+
+	go gSisBot()
+	// go the2ndBot()
+
+
+	// Second bot
+	the2ndBot, err := tb.NewBot(tb.Settings{
+		Token: os.Getenv("SECRET_TOKEN_2ND"),
+		Poller: &tb.LongPoller{Timeout: 10 * time.Second},
+	})
+
+	if err != nil {
+		log.Fatal(err)
+		return
+	}
+
+	the2ndBot.Handle("/start", func(m *tb.Message) {
+		the2ndBot.Send(m.Sender, "2nd bot running too")
+	})
+
+	the2ndBot.Start()
+	
 }
