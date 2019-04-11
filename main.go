@@ -28,7 +28,7 @@ func gSisBot() {
 	})
 
 	b.Handle(tb.OnText, func(m *tb.Message) {
-		b.Send(m.Sender, "This bot is currently not supported interactive mode. Please use the inline mode (@GoogleSisBot your_chat)")
+		b.Send(m.Sender, "This bot does not currently supported the interactive mode. Please use the inline mode (@GoogleSisBot your_chat)")
 	})
 
 	b.Handle(tb.OnQuery, func(q *tb.Query) {
@@ -66,3 +66,4 @@ func main() {
 	go gSisBot()	
 	select {}
 }
+
