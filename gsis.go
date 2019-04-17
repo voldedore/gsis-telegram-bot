@@ -1,4 +1,4 @@
-package gsis-telegram-bot
+package gsis
 
 import (
 	"fmt"
