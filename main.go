@@ -1,4 +1,4 @@
-package main
+package gsis-telegram-bot
 
 import (
 	"fmt"
@@ -12,7 +12,7 @@ import (
 )
 
 // Google Sis Bot
-func gSisBot() {
+func GSisBot() {
 	b, err := tb.NewBot(tb.Settings{
 		Token:  os.Getenv("SECRET_TOKEN"),
 		Poller: &tb.LongPoller{Timeout: 10 * time.Second},
@@ -63,6 +63,6 @@ func gSisBot() {
 }
 
 func main() {
-	go gSisBot()
+	go GSisBot()
 	select {}
 }
